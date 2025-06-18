@@ -1,3 +1,5 @@
+https://docker77.hashnode.dev/docker-volumes-with-real-time-examples
+
 # yum install docker -y && syatemctl start docker 
 lets create a container with volume with specific path
 # docker run -itd --name cont1 -v /sai ubuntu
