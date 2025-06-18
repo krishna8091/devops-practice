@@ -1,1 +1,14 @@
+FROM node:19-alpine As stageone
+WORKDIR /myapp
+COPY package*.json ./
+RUN npm install
+COPY . .
 
+FROM stageone As finalstage
+RUN npm install --production
+COPY . .
+CMD ["node", "index.js"]
+
+# docker build -t nodeapp:v1
+# docker run -itd --name cont2 -p 2222:80 nodeapp:v1
+access : publicip:2222
