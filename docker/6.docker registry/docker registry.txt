@@ -14,11 +14,8 @@ myrepo is my repository
 v1 is a tag
 
 STEP-5: LOGIN TO DOCKER HUB
-Copy
 docker login
 STEP-6: PUSH THE IMAGE
-
-Copy
 docker push shaikmustafa/myrepo:v1
 Now go and see the image is pushed in to your dockerhub account
 
