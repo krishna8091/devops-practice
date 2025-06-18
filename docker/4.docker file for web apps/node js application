@@ -14,3 +14,4 @@ CMD ["node","index"]
 
 docker build -t nodeapp .
 docker run -itd --name cont1 -p 1111:80 nodeapp
+access : publicip:1111
