@@ -1,1 +1,11 @@
+FROM mysql/mysql-server:5.7
+EXPOSE 3306
+ENV MYSQL_USER=root
+ENV MYSQL_ROOT_PASSWORD=admin@123
+
+docker build -t dbimage .
+docker run -d --name mydb -p 3306:3306 dbimage
+docker exec -it mydb bash
+mysql -u root -p
+password=admin@123
 
