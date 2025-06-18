@@ -1,6 +1,16 @@
+git clone https://github.com/krish9966/nodejs-docker.git
+#ll -> nodejs-docker 
+#cd nodejs-docker/
+#ll Remove docker file 
+#rm -rf Dockerfile
+#ll #vim Dockerfile
+
 FROM node:16
 WORKDIR /myapp
 COPY package.json ./
 RUN npm install
 COPY . .
 CMD ["node","index"] 
+
+docker build -t nodeapp .
+docker run -itd --name cont1 -p 1111:80 nodeapp
