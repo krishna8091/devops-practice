@@ -1,1 +1,32 @@
+docker basic pipeline
 
+pipeline {
+agent any
+stages {
+stage ("Code") {
+steps {
+git branch: 'flm', url: 'https://github.com/devops0014/digital_marketing.git'
+}
+}
+stage ("Build") {
+steps {
+sh 'docker build -t $username/$repo:$tag 2128_tween_agency'
+}
+}
+stage ("Push") {
+steps {
+script {
+withDockerRegistry(credentialsId: 'dockerhub') {
+sh 'docker push $username/$repo:$tag'
+}
+}
+}
+}
+stage ("Deploy") {
+
+steps {
+sh 'docker run -itd --name $contname -p $contport:80 $username/$repo:$tag'
+}
+}
+}
+}
