@@ -1,0 +1,58 @@
+Step by Step process to push the image to Dockerhub
+STEP-1: CREATE A FREE DOCKER HUB ACCOUNT
+
+STEP-2: Write a Dockerfile
+  FROM nginx
+COPY . /usr/share/nginx/html/
+STEP-3: Build the Dockerfile
+  docker build -t image1 .
+STEP-4: Tag the image
+  docker tag image1 <your-dockerhub-username>/<repo-name>:tag
+Ex: docker tag image1 shaikmustafa/myrepo:v1
+in the above example, shaikmustafa is my dockerhub username
+myrepo is my repository
+v1 is a tag
+
+STEP-5: LOGIN TO DOCKER HUB
+Copy
+docker login
+STEP-6: PUSH THE IMAGE
+
+Copy
+docker push shaikmustafa/myrepo:v1
+Now go and see the image is pushed in to your dockerhub account
+
+Step by Step process to push the image to ECR:
+  
+STEP-1: ALLOW IAM PERMISSIONS TO EC2
+  
+Select the instance » Actions » security » Modify IAM Role
+Now click on create new IAM role
+that will redirect to another page, so click on create role
+Now select the use case as EC2 and click on Next
+select the policy as AdministratorAccess
+Now enter the rolename as ecr-role
+click on create role
+Now go back to previous tab and refresh it you will get the role name and attach it
+
+STEP-2: GO TO ECR & CREATE A REPOSITORY
+
+Now open the repository, and click on view push commands
+Now copy all the commands and paste it on docker host.
+So we have successfully pushed the image to ECR.
+
+Best Practices for Using a Docker Registry
+Enable Authentication: For private registries, secure access with usernames and passwords.
+Use HTTPS: Protect your data by enabling HTTPS for your registry.
+Clean Up Old Images: Remove unused images regularly to save storage space.
+
+Automate with CI/CD: Integrate your registry with CI/CD pipelines for seamless deployments.
+
+Final Thoughts
+A Docker Registry is a crucial component of containerized workflows. Whether you use a public registry 
+  like Docker Hub or host your own private registry, it ensures your images are easily accessible, secure, and organized.
+  By understanding and using Docker Registries effectively, you can simplify your software development and deployment process.
+
+
+
+
