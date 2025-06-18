@@ -9,3 +9,7 @@ docker exec -it mydb bash
 mysql -u root -p
 password=admin@123
 
+to see list of databases # show dabases;
+to create a database #create database flm;
+to select a database #use flm; 
+to show tables # show tables;
