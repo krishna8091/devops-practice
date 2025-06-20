@@ -1,0 +1,17 @@
+1.create a repo in docker hub
+2.basic docker file
+#vim Docker file
+FROM nginx
+COPY . /usr/share/nginx/html
+Basic source code 
+
+#vim index.html
+<h1> this is my first image in docker hub </h1>
+#docker build -t image1 .
+#docker images
+we have to push image to docker hub and image should have proper syntax 
+syntax = username/repo:tag
+krishna8091/myrep:v1
+* to rename a image we use docker tag 
+# docker tag image1 krishna8091/myrep:v1 
+image name will change to krishna8091/myrep:v1
