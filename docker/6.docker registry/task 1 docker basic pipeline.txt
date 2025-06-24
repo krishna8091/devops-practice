@@ -2,7 +2,7 @@ in jenkins install
 plugin 1.pipeline stage view 
 to push image image to docker hub
 2. docker pipeline 
-
+give permissions chmod 777 /var/run/docker.sock
 docker basic pipeline
 
 pipeline {
