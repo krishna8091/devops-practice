@@ -1,3 +1,8 @@
+in jenkins install 
+plugin 1.pipeline stage view 
+to push image image to docker hub
+2. docker pipeline 
+
 docker basic pipeline
 
 pipeline {
