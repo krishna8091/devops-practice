@@ -1,3 +1,4 @@
+task 1 using jenkins pipeline we have to build docker image and container 
 in jenkins install 
 plugin 1.pipeline stage view 
 to push image image to docker hub
