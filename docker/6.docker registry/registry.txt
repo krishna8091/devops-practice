@@ -13,5 +13,20 @@ we have to push image to docker hub and image should have proper syntax
 syntax = username/repo:tag
 krishna8091/myrep:v1
 * to rename a image we use docker tag 
-# docker tag image1 krishna8091/myrep:v1 
+# docker tag image1 krishna8091/myrep:v1 .
 image name will change to krishna8091/myrep:v1
+lets push image 
+docker push krishna8091/myrep:v1 
+
+lets create another image
+# vim Dockerfile
+FROM httpd
+COPY . /usr/local/apache2/htdocs/
+
+# vim index.html
+<h1> this is my second image in docker hub </h1>
+# docker build -t krishna8091/myrepo:v2 .
+# docker push krishna8091/myrepo:v2
+
+
+
