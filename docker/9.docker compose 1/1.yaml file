@@ -6,3 +6,48 @@ ls /usr/local/bin/
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose version
+
+lets write compose file for creating multiple files
+#vim compose.yml
+---
+version: "3"
+services:
+ instamart:
+   container_name: instamart_container
+   image : shaikmustafa/dm
+   ports:
+     - "8081:80"  
+
+ food_delivery:
+   container_name: food_container
+   image : shaikmustafa/cycle
+   ports:
+     - "8082:80" 
+
+ dineout:
+   container_name: dineout_container
+   image : shaikmustafa/zomato
+   ports:
+     - "8083:3000" 
+
+compose file for local images
+---
+version: "3"
+services:
+  instamart:
+   container_name: instamart_container
+   image : instamart-image
+   ports:
+     - "8081:80"
+
+  food_delivery:
+   container_name: food_container
+   image : food-image
+   ports:
+     - "8082:80"
+
+  dineout:
+   container_name: dineout_container
+   image : dineout-image
+   ports:
+     - "8083:80" 
