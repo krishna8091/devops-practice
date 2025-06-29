@@ -14,3 +14,16 @@ services:
     ports:
       -"8082:80"
 
+mkdir swiggy zomato
+#vim swiggy/index.html
+<h1> welcome to swiggy app </h1>
+
+#vim Swiggy/Dockerfile
+FROM nginx
+COPY . /usr/share/nginx/html
+
+lets copy swiggy file to zomato
+#cp -r swiggy/* zomato/
+#vim zomato/index.html
+<h1> welcome to zomato app </h1>
+
