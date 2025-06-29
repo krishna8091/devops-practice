@@ -1,1 +1,17 @@
+---
+version: "3"
+services:
+  webapp1:
+    deploy:
+      replicas: 3
+    build: ./swiggy/
+    ports:
+      - "80"
+
+  webapp2:
+    deploy:
+      replicas: 3
+    build: ./zomato/
+    ports:
+      - "80"
 
