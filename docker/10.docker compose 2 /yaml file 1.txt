@@ -12,13 +12,13 @@ services:
     container_name:cont-1
     build: ./swiggy/
     ports:
-      -"8081:80"
+      - "8081:80"
 
   webapp2:
     container_name:cont-2
     build: ./zomato/
     ports:
-      -"8082:80"
+      - "8082:80"
 
 mkdir swiggy zomato
 #vim swiggy/index.html
