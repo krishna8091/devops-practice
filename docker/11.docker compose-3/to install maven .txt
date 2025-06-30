@@ -1,0 +1,32 @@
+ask deepseek for install maven latest version for amazon linux
+if it doesnot work go to dlcdn.apache.org find latest version copy file link
+ask deepseek commands to install this version 
+install java required for maven 
+yum install java-17-amazon-corretto -y 
+
+download maven 
+# Download Maven 4.0.0-rc-4
+wget https://downloads.apache.org/maven/maven-4/4.0.0-rc-4/binaries/apache-maven-4.0.0-rc-4-bin.tar.gz -P /tmp
+
+extract maven 
+sudo tar xf /tmp/apache-maven-4.0.0-rc-4-bin.tar.gz -C /opt
+
+create symlink
+sudo ln -s /opt/apache-maven-4.0.0-rc-4 /opt/maven
+
+set evironmental variables 
+# Create a Maven environment file
+sudo tee /etc/profile.d/maven.sh <<EOF
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=\$M2_HOME/bin:\$PATH
+EOF
+
+# Make it executable
+sudo chmod +x /etc/profile.d/maven.sh
+
+# Reload environment variables
+source /etc/profile.d/maven.sh
+
+get maven version 
+mvn -version
