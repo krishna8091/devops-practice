@@ -1,1 +1,18 @@
+---
+version: "3"
+services:
+  web1:
+    container_name: cont-1
+    image: shaikmustafa/dm
+    deploy:
+      replicas: 3
+    ports: 
+      - "8081:80"
 
+   web2:
+     container_name: cont-1
+     image: shaikmustafa/dm
+     deploy:
+      replicas: 3
+     ports: 
+       - "8082:80"   
