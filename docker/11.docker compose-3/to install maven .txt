@@ -30,3 +30,6 @@ source /etc/profile.d/maven.sh
 
 get maven version 
 mvn -version
+
+we have to check target folder for war file , if dont have have to skip test 
+# mvn clean package -Dskiptests
