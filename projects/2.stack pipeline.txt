@@ -1,0 +1,77 @@
+pipeline {
+    agent {
+        node {
+            label 'dev'
+        }
+    }
+    tools {
+        maven 'mymaven'
+        jdk 'jdk17'
+        nodejs 'node16'
+    }
+
+    stages {
+        stage('cleanws') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('code') {
+            steps{
+                git 'https://github.com/krishna8091/dockerwebapp.git'
+            }
+        }
+        stage('CQA') {
+            steps{
+                withSonarQubeEnv('mysonar') {
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=myproject"
+                }        
+            }
+        }
+        stage('qualitygate') {
+            steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar'
+                }
+            }
+        }
+        stage('build'){
+           steps {
+               sh 'mvn clean package'
+               sh 'cp -r target Docker-app'
+           }
+        }
+        stage('artifact'){
+            steps{
+                nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v2.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.visualpathit', nexusUrl: '13.222.27.34:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo', version: 'v2'
+            }
+        }
+        stage('dockerbuild'){
+            steps {
+                sh 'docker build -t krishna8091/sai:appimage Docker-app'
+                sh 'docker build -t krishna8091/sai:dbimage Docker-db'
+            }
+        }
+        stage('trivy'){
+            steps{
+                sh 'trivy image krishna8091/sai:appimage'
+                sh 'trivy image krishna8091/sai:dbimage'
+            }
+        }
+        stage('push'){
+            steps{
+                script{
+                    withDockerRegistry(credentialsId: 'dockerhub') {
+                        sh 'docker push krishna8091/sai:appimage'
+                        sh 'docker push krishna8091/sai:dbimage'
+                    }
+                }
+            }
+        }
+        stage("stack"){
+            steps {
+                sh 'docker stack deploy myapp --compose-file=compose.yml'
+            }
+        }
+    }
+}
