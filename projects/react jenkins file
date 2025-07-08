@@ -1,1 +1,35 @@
+pipeline {
+    agent {
+        node {
+            label 'dev'
+        }
+    }
+    tools {
+        nodejs 'node16'
+    }
+    environment {
+        SCANNER_HOME=tool 'mysonar'
+    }
+
+    stages {
+        stage('cleanws') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('code') {
+            steps {
+                git 'https://github.com/krishna8091/Zomato-Project.git'
+            }
+        }
+        stage('CQA') {
+            steps {
+                 withSonarQubeEnv('mysonar') {
+                    sh ''' $SCANNER_Home/bin/sonar-scanner -Dsonar.projectname=zomato\
+                    -Dsonar.projectkey=zomato '''
+                 }
+            }
+       }
+   }
+}   
 
