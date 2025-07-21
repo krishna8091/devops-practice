@@ -1,1 +1,20 @@
-
+---
+apiVersion: v1
+kind: Replication Controller
+metadata: 
+  name: myrc
+spec:
+  replicas: 3
+  selector: 
+    app: swiggy
+  template:
+    metadata:
+      labels:
+        app: swiggy
+    spec:
+      containers:
+        - name: cont-1
+          image: shaikmustafa
+          ports:
+            - containerPort: 80
+  
