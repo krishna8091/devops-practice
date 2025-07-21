@@ -1,0 +1,10 @@
+vim .bashrc
+export PATH=$PATH:/usr/local/bin
+source .bashrc
+
+setup 
+1. aws cli | aws --version
+2. kops | kops version
+3. kubectl | 1. chmod +x |2. mv kubectl /usr/local/bin | 3. kubectl version
+
+
