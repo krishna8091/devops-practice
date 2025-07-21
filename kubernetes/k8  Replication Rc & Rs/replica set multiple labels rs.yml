@@ -1,1 +1,27 @@
-
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: myrs
+spec:
+  replicas: 2
+  selector: 
+    matchexpressions:
+      - key: app
+        operator: In
+        values:
+          - swiggy
+          - zomato
+          - uber
+  template:
+    metadata:
+      labels:
+        app: swiggy
+        env: dev
+    spec:
+      containers:
+        - name: cont-1
+          image: shaikmustafa/mygame
+          ports:
+            - containerPort: 80
+  
