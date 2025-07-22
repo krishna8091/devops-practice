@@ -1,3 +1,9 @@
+CREATE A CONFIG-MAPS FROM FILE:
+
+We have created one file first.conf which has some data, and created the configMap with the help of that file.
+
+cat config-map-data.txt
+
 Name=Mustafa
 
 Course=Python
