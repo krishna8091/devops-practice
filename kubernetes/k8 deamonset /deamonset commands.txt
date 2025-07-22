@@ -1,1 +1,9 @@
+Command to create a DaemonSet: kubectl create daemonset ds-name --image=image-name
+Apply the YAML File: kubectl apply -f daemonset.yaml
+Step 1: Label the Test Nodes
+kubectl label node test-node-1 env=test
+kubectl label node test-node-2 env=test
+Check the labels:
+kubectl get nodes --show-labels
+Step 2: Create a DaemonSet YAML
 
