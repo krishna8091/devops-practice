@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: my-logging-agent
+spec:
+  selector:
+    matchLabels:
+      app: log
+  template:
+    metadata:
+      labels:
+        app: log
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: env
+                operator: In
+                values:
+                - test
+      containers:
+      - name: cont-1
+        image: fluent/fluentd:v1.14.6
