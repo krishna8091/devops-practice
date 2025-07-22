@@ -1,1 +1,11 @@
+CREATING CONFIG MAP FROM LITERAL: 
+kubectl create cm my-first-cm --from-literal=Course=DevOps --from-literal=Cloud=AWS --from-literal=Trainer=Mustafa
+To get Config Maps: kubectl get cm
+To descibe: kubectl describe configmap/configmap-name
+To delete: kubectl delete configmap/configmap
 
+CREATE A CONFIG-MAPS FROM FILE:
+cat config-map-data.txt
+Name=Mustafa
+Course=Python
+Duration=60 days
