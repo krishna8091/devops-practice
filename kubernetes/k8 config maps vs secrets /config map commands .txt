@@ -9,3 +9,6 @@ cat config-map-data.txt
 Name=Mustafa
 Course=Python
 Duration=60 days
+
+command to create config map: kubectl create cm cm-name --from-file=filename
+
