@@ -1,0 +1,1 @@
+Command to create a Deployment: kubectl create deployment deployment-name --image=image-name --replicas=4
