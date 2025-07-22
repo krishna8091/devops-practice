@@ -6,4 +6,9 @@ kubectl label node test-node-2 env=test
 Check the labels:
 kubectl get nodes --show-labels
 Step 2: Create a DaemonSet YAML
+Step 3: Apply the DaemonSet
+Deploy the DaemonSet: kubectl apply -f logging-pod.yaml
+Verify the DaemonSet : kubectl get daemonset
+Check where the Pods are running: kubectl get pods -o wide
+
 
