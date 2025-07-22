@@ -1,0 +1,4 @@
+IMPLEMENTING HPA (Horizontal Pod Autoscaler):
+ONCE CLUSTER IS READY, INSTALL METRIC SERVER
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+Verify that metrics-server is running: kubectl get deployment metrics-server -n kube-system
