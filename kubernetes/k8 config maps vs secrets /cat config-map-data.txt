@@ -1,0 +1,5 @@
+Name=Mustafa
+
+Course=Python
+
+Duration=60 days
