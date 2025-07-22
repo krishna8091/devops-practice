@@ -1,1 +1,27 @@
 Command to create a Deployment: kubectl create deployment deployment-name --image=image-name --replicas=4
+Apply the YAML File: kubectl apply -f deployment.yaml
+To create a replica set :   kubectl create -f replicaset-nginx.yaml
+To see a deployment :  kubectl get deployment
+To see full details of deployment :  kubectl get deployment -o wide
+To view in YAML format :  kubectl get deployment -o yaml
+To get all info :   kubectl describe deploy
+To check logs :   kubectl logs pod_name
+To delete a deployment :   kubectl delete deployment deploy_name
+Command to update the image:  kubectl set image deployment/deployment-name cont-1=new-image-name
+Check rollout status:  kubectl rollout status deployment/deployment-name
+Check running pods:  kubectl get pods
+Command to rollback:  kubectl rollout undo deployment/deployment-name
+To get the history:  kubectl rollout history deployment/deployment-name
+To rollback specific version:  kubectl rollout undo deployment/deployment-name --to-revision=number
+To pause a pod in deployment: kubectl rollout pause deployment/deployment-name
+To un-pause a pod in deployment: kubectl rollout resume deployment/deployment-name
+manual scaling command to scale the deployment: kubectl scale deployment deployment-name --replicas=9
+Scaling Down After the Event : kubectl scale deployment deployment-name --replicas=3
+Export the YAML of an existing Deployment :  kubectl get deployment my-app -o yaml > my-app-deployment.yaml
+Check logs of Pods managed by the Deployment:  kubectl logs deployment/my-app
+Get logs of a specific Pod in the Deployment:  kubectl logs pod-name
+Run a shell inside a Pod of the Deployment:  kubectl exec -it pod-name -- bash
+
+
+
+
