@@ -1,6 +1,23 @@
 IMPLEMENTING HPA (Horizontal Pod Autoscaler):
+
 ONCE CLUSTER IS READY, INSTALL METRIC SERVER
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 Verify that metrics-server is running: kubectl get deployment metrics-server -n kube-system
 Apply the file: kubectl create -f deployment.yml
+Apply the file: kubectl apply -f my-hpa.yml
+To see the HPA: kubectl get hpa
+TEST HPA: kubectl exec -it <nginx-pod-name> -- bash
+Install stress package on pod: apt-get update && apt-get install stress -y
+command to increase load on pods: stress --cpu 2 --timeout 300
+OPEN ANOTHER TERMINAL and perform to get the logs : kubectl get hpa -w
+Detailed information about a specific HPA: kubectl describe hpa nginx-app
+Modify the scaling range or target: kubectl edit hpa nginx-app
+Remove a specific HPA: kubectl delete hpa nginx-app
+Delete all HPAs in the namespace: kubectl delete hpa --all
+Check HPA scaling events: kubectl get events --namespace <namespace>
+
+IMPLEMENTING VPA (Vertical Pod Autoscaler):
+
+
+
 
