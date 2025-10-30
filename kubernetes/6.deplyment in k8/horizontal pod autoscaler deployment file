@@ -1,1 +1,22 @@
+#vim hpa.yml
+
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscale
+metadata: 
+  name: myhpa
+spec:
+  ScaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment 
+    name; flm
+minReplicas: 3
+maxReplicas: 10
+metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 60
 
