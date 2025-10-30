@@ -1,0 +1,14 @@
+---
+apiversion: v1
+kind: Service
+metadata:
+  name: mysvc
+spec: 
+  type: LoadBalance
+  selector:
+    app: swiggy
+  ports: 
+    - port: 80
+      targetPort: 80
+  
+  
