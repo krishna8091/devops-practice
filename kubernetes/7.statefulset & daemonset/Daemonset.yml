@@ -1,0 +1,19 @@
+---
+apiVesion: apps/v1
+kind: DaemonSet
+metadata:
+  name: monitor
+spec:
+  selector:
+    matchLabels:
+      app: swiggy
+   template:
+     metadata:
+        labels:
+          app: swiggy
+      spec:
+        containers:
+          - name: cont-1
+            image: shaikmustafa/mygame
+            ports:
+              - containerPort: 80
