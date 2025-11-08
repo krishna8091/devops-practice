@@ -1,1 +1,3 @@
-
+export KOPS_STATE_STORE=s3://gopi.flm.k8s
+kops create cluster --name sai.k8s.local --zones us-east-1a,us-east-1b --control-plane-size t2.large --control-plane-count 1 --control-plane-volume-size 40 --node-size t2.medium --node-count 2 --node-volume-size 30
+kops update cluster --name sai.k8s.local --yes --admin
