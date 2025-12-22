@@ -2,7 +2,7 @@
 apiVersion: V1
 kind: configMap
 metadata:
-  name: pod-1
+  name: pod-2
 spec: 
   containers:
     - name: cont-1
