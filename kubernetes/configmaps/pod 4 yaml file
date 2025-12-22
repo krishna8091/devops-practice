@@ -1,1 +1,30 @@
-
+---
+apiVersion: V1
+kind: configMap
+metadata:
+  name: pod-3
+spec: 
+  containers:
+    - name: cont-1
+      image: nginx
+      ports: 
+        - containerPort: 80
+      env:
+        - name: myenv
+          valueFrom:
+            configMapKeyRef:
+              key: cloud
+              name: firstcm
+         - name: newenv
+           valueFrom:
+             configMapKeyRef:
+               key: DB_HOST
+               name: fourthcm
+          - name: oldenv
+            valueFrom:
+              configMapKeyRef:
+                key: employee
+                name: thirdcm
+             
+           
+           
