@@ -2,13 +2,18 @@
 apiVersion: V1
 kind: configMap
 metadata:
-  name: pod-1
+  name: pod-3
 spec: 
   containers:
     - name: cont-1
       image: nginx
       ports: 
         - containerPort: 80
-      envFrom:
-       - configMapRef:
-           name: firstcm
+      env:
+        - name: myenv
+          valueFrom:
+          configMapKeyRef:
+             key: cloud
+            name: firstcm
+       
+           
