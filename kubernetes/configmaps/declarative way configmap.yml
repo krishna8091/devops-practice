@@ -1,0 +1,8 @@
+---
+apiVersion: V1
+kind: configMap
+metadata:
+  name: fourthcm
+data: 
+  DB_Host: "www.mysql.com/flm"
+  DB_port: "3306"
