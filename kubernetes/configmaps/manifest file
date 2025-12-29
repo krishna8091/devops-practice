@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: pod
+metadata: 
+  name: pod-1
+  namespace: test 
+spec: 
+  containers: 
+    - name: cont-1
+      image: shaikmustafa/dm
+      ports:
+        - containerPort: 80
