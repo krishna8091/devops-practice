@@ -12,8 +12,7 @@ spec:
      metadata:
        labels:
          app: swiggy
-
-      spec: 
+     spec: 
         containers:
           - name: cont-1
             image: ubuntu
