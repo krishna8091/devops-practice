@@ -1,36 +1,30 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flm
 spec:
   replicas: 2
-  selector: 
-    matchLabels: 
+  selector:
+    matchLabels:
       app: swiggy
-   template:
-     metadata:
-       labels:
-         app: swiggy
-     spec: 
-        containers:
-          - name: cont-1
-            image: ubuntu
-            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
-            volumeMounts: 
-              - name: devops
-                mountpath: /tmp/jenkins/
-          
-          - name: cont-2
-            image: ubuntu
-            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
-            volumeMounts: 
-              - name: devops
-                mountpath: /tmp/docker
-
-        volumes:
-          - name: devops
-            emptyDir: {}
-
-
-            
+  template:
+    metadata:
+      labels:
+        app: swiggy
+    spec:
+      containers:
+        - name: cont-1
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo welcome to flm; sleep 5; done"]
+          volumeMounts:
+            - name: devops
+              mountPath: /tmp/jenkins/
+        - name: cont-2
+          image: ubuntu
+          command: ["/bin/bash", "-c", "while true; do echo welcome to flm; sleep 5; done"]
+          volumeMounts:
+            - name: devops
+              mountPath: /tmp/docker
+      volumes:
+        - name: devops
+          emptyDir: {}
