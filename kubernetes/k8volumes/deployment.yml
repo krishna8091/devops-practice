@@ -1,0 +1,27 @@
+---
+apiversion: apps/v1
+kind: Deployment
+metadata:
+  name: flm
+spec:
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: swiggy
+   template:
+     metadata:
+       labels:
+         app: swiggy
+
+      spec: 
+        containers:
+          - name: cont-1
+            image: ubuntu
+            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
+
+           - name: cont-1
+            image: ubuntu
+            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"] 
+
+
+            
