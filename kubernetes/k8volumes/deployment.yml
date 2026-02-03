@@ -17,10 +17,20 @@ spec:
           - name: cont-1
             image: ubuntu
             command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
-
-           - name: cont-2
+            volumeMounts: 
+              - name: devops
+                mountpath: /tmp/jenkins/
+          
+          - name: cont-2
             image: ubuntu
-            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"] 
+            command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
+            volumeMounts: 
+              - name: devops
+                mountpath: /tmp/docker
+
+        volumes:
+          - name: devops
+            emptyDir: {}
 
 
             
