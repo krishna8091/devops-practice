@@ -1,5 +1,5 @@
 ---
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flm
@@ -19,7 +19,7 @@ spec:
             image: ubuntu
             command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"]
 
-           - name: cont-1
+           - name: cont-2
             image: ubuntu
             command: [ "/bin/bash","-c","while true ; do echo welcome to flm ;done"] 
 
