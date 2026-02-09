@@ -27,4 +27,4 @@ spec:
               mountPath: /tmp/docker
       volumes:
         - name: devops
-          emptyDir: {}
+          hostPath: /tmp/mydata
