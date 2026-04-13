@@ -1,0 +1,33 @@
+pipeline {
+    agent any // Runs on any available executor
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building application...'
+                // Example: sh 'mvn clean install'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Example: sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to staging...'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline finished. Cleaning up...'
+        }
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed. Sending notification...'
+        }
+    }
+}
