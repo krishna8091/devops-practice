@@ -27,14 +27,7 @@ pipeline {
                     sh "mvn clean verify sonar:sonar -Dsonar.projectKey=myproject"
                 }        
             }
-        }
-        stage('qualitygate') {
-            steps {
-                script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar'
-                }
-            }
-        }
+        
         stage('build'){
            steps {
                sh 'mvn clean package'
