@@ -34,11 +34,7 @@ pipeline {
                sh 'cp -r target Docker-app'
            }
         }
-        stage('artifact'){
-            steps{
-                nexusArtifactUploader artifacts: [[artifactId: 'vprofile', classifier: '', file: 'target/vprofile-v2.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.visualpathit', nexusUrl: '13.222.27.34:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'myrepo', version: 'v2'
-            }
-        }
+        
         stage('dockerbuild'){
             steps {
                 sh 'docker build -t krishna8091/sai:appimage Docker-app'
